@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <Header></Header>
+    <Header />
 
     <div class="app-content">
       <router-view></router-view>
     </div>
 
-    <Footer></Footer>
+    <Footer />
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
 
   width: 100vw;
   height: 100vh;
+
+  background-color: #323639;
+  color: #ffffff;
 
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
