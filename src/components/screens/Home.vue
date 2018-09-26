@@ -11,15 +11,15 @@
           latest pricing data from <b-link class="text-secondary" href="https://min-api.cryptocompare.com/">CryptoCurrency API</b-link>.
         </p>
       </template>
+
+      <Converter class="mt-5" />
     </b-jumbotron>
   </b-container>
 </template>
 
 <script>
-export default {
-  name: 'HomeScreen'
-}
-</script>
+import Converter from "../Converter/Converter.vue"
+
 export default {
   name: 'HomeScreen',
   components: {

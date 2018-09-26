@@ -45,4 +45,19 @@ export default {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
+.btn-transparent {
+  background-color: transparent;
+  color: #ffffff;
+
+  padding: 0;
+  padding-bottom: 0.375rem;
+
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+.bg-card {
+  background-color: #41464a;
+}
 </style>
