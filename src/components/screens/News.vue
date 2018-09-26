@@ -29,6 +29,26 @@ export default {
 </script>
 
 <style scoped>
+.jumbotron {
+  position: relative;
+}
+
+.jumbotron::before {
+  position: absolute;
+  left: -75px;
+  top: 0px;
+
+  background-image: url("../../assets/map.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center left;
+
+  width: 450px;
+  height: 300px;
+
+  content: "";
+}
+
 .jumbotron-lead {
   max-width: 600px;
 }
