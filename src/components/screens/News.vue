@@ -35,7 +35,7 @@ export default {
 
 .jumbotron::before {
   position: absolute;
-  left: -75px;
+  left: 15px;
   top: 0px;
 
   background-image: url("../../assets/map.png");
