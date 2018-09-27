@@ -8,7 +8,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="/home">Home</b-nav-item>
           <b-nav-item to="/news">News</b-nav-item>
-          <b-nav-item class="ml-3 py-0 btn btn-outline-secondary" href="https://github.com/Bartozzz/crypto-news">Source</b-nav-item>
+          <b-nav-item class="mx-3 py-0 btn btn-outline-secondary" href="https://github.com/Bartozzz/crypto-news">Source</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-container>
@@ -25,5 +25,11 @@ export default {
 .navbar {
   box-shadow: 0 15px 15px -2px #323639;
   z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-nav {
+    text-align: center;
+  }
 }
 </style>

@@ -52,6 +52,12 @@ export default {
   overflow-y: auto;
 }
 
+@media screen and (max-width: 600px) {
+  .app-content {
+    background-image: none;
+  }
+}
+
 .border-transparent {
   border-color: transparent;
 }

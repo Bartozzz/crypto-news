@@ -13,7 +13,7 @@
       </template>
     </b-jumbotron>
 
-    <Articles />
+    <Articles class="mb-5" />
   </b-container>
 </template>
 
@@ -51,5 +51,21 @@ export default {
 
 .jumbotron-lead {
   max-width: 600px;
+}
+
+@media screen and (max-width: 820px) {
+  .jumbotron .display-3,
+  .jumbotron .lead {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .jumbotron::before {
+    left: 0;
+
+    width: 100%;
+    height: 200px;
+  }
 }
 </style>
