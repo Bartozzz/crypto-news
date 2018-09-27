@@ -40,10 +40,20 @@ export default {
 }
 
 .app-content {
+  background-image: url("./assets/bg.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 700px;
+  background-attachment: fixed;
+
   flex: 1;
 
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.border-transparent {
+  border-color: transparent;
 }
 
 .btn-transparent {
