@@ -14,16 +14,20 @@
 
       <Converter class="mt-5" />
     </b-jumbotron>
+
+    <Trends class="mb-5 px-4" />
   </b-container>
 </template>
 
 <script>
 import Converter from "../Converter/Converter.vue"
+import Trends from "../Trends/Trends.vue"
 
 export default {
   name: 'HomeScreen',
   components: {
-    Converter
+    Converter,
+    Trends
   }
 }
 </script>
