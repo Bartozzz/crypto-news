@@ -1,8 +1,26 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import VueBootstrap from "bootstrap-vue";
 
-Vue.config.productionTip = false
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
+
+import App from "./App.vue";
+import HomeScreen from "./components/screens/Home.vue";
+import NewsScreen from "./components/screens/News.vue";
+
+Vue.use(VueRouter);
+Vue.use(VueBootstrap);
+Vue.config.productionTip = false;
+
+const router = new VueRouter({
+  routes: [
+    { path: "/home", component: HomeScreen, alias: "/" },
+    { path: "/news", component: NewsScreen }
+  ]
+});
 
 new Vue({
+  router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
