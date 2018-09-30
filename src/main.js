@@ -8,6 +8,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import App from "./App.vue";
 import HomeScreen from "./components/screens/Home.vue";
 import NewsScreen from "./components/screens/News.vue";
+import store from "./store";
 
 Vue.use(VueRouter);
 Vue.use(VueBootstrap);
@@ -21,6 +22,7 @@ const router = new VueRouter({
 });
 
 new Vue({
+  store,
   router,
   render: h => h(App)
 }).$mount("#app");

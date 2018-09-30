@@ -1,26 +1,51 @@
 <template>
   <b-card
+    class="article"
     bg-variant="card"
     border-variant="transparent"
-    title="Article title"
-    img-src="https://placekitten.com/g/300/300"
+    :title="title"
+    :img-src="img"
     img-fluid
     img-alt="image"
     img-top
   >
     <p class="card-text">
-      Article summary.
+      {{ body }}
     </p>
 
-    <small class="text-muted">Updated 3 mins ago</small>
+    <small class="text-muted">Updated {{ published }} by {{ publisher }}</small>
   </b-card>
 </template>
 
 <script>
+import { formatDistance } from "date-fns";
+
 export default {
-  name: "Article"
+  name: "Article",
+
+  props: {
+    url: String,
+    img: String,
+    body: String,
+    title: String,
+    date: Number,
+    publisher: String
+  },
+
+  computed: {
+    published() {
+      return formatDistance(new Date(this.date * 1000), new Date());
+    }
+  }
 }
 </script>
 
 <style scoped>
+.article {
+  display: inline-block;
+}
+
+.card-text {
+  word-break: break-all;
+}
 </style>
