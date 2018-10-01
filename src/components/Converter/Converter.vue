@@ -3,20 +3,20 @@
     <b-col class="mb-3" xs="12" sm="6">
       <CoinCard
         id="coinA"
+        v-model="coinA.amount"
         :coin.sync="coinA"
         :coins.sync="coins"
         @onCoinSelect="changeSelectedCoin"
-        @onAmountChange="changeCoinAmount"
       />
     </b-col>
 
     <b-col class="mb-3" xs="12" sm="6">
       <CoinCard
         id="coinB"
+        v-model="coinB.amount"
         :coin.sync="coinB"
         :coins.sync="coins"
         @onCoinSelect="changeSelectedCoin"
-        @onAmountChange="changeCoinAmount"
       />
     </b-col>
   </b-row>
@@ -25,6 +25,11 @@
 <script>
 import { mapState, mapGetters } from "vuex";
 import CoinCard from "./CoinCard.vue";
+
+const processAmount = amount => {
+  // Casts to number & sets min val to 0:
+  return Math.max(Number(amount) || 0, 0);
+}
 
 export default {
   name: "Converter",
@@ -50,10 +55,35 @@ export default {
     }),
 
     conversionRate() {
+      const { Symbol: SymbolA } = this.coinA;
+      const { Symbol: SymbolB } = this.coinB;
+
+      if (!(SymbolA in this.prices) || !(SymbolB in this.prices)) {
+        return 0;
+      }
+
       const { BTC: BTCa } = this.prices[this.coinA.Symbol];
       const { BTC: BTCb } = this.prices[this.coinB.Symbol];
 
       return BTCa / BTCb;
+    }
+  },
+
+  watch: {
+    ["coinA.amount"](amount) {
+      const legalAmount = processAmount(amount);
+
+      // Simple cross product, ref. computed conversionRate:
+      this.coinB.amount = legalAmount * this.conversionRate;
+      this.coinA.amount = legalAmount;
+    },
+
+    ["coinB.amount"](amount) {
+      const legalAmount = processAmount(amount);
+
+      // Simple cross product, ref. computed conversionRate:
+      this.coinA.amount = legalAmount / this.conversionRate;
+      this.coinB.amount = legalAmount;
     }
   },
 
@@ -80,23 +110,6 @@ export default {
 
       this.fetchSelectedCoinsPrices();
     },
-
-    changeCoinAmount({ index, amount }) {
-      amount = Math.max(amount, 0);
-
-      switch(index) {
-        case "coinA":
-          this.coinA.amount = amount;
-          this.coinB.amount = (amount * this.conversionRate).toFixed(8);
-          break;
-
-        default:
-          this.coinA.amount = (amount / this.conversionRate).toFixed(8);
-          this.coinB.amount = amount;
-      }
-
-      console.log(this.coinA.amount, this.coinB.amount);
-    }
   }
 }
 </script>
