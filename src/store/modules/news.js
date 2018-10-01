@@ -1,15 +1,15 @@
-import * as news from "../../api/news";
+import * as newsAPI from "../../api/news";
 
 const state = {
   news: [],
-  error: []
+  error: null
 };
 
 const getters = {};
 
 const actions = {
   getLatestNews({ commit }) {
-    news
+    newsAPI
       .getLatestNews()
       .then(response => {
         commit("setNews", response.data.Data);
@@ -21,8 +21,8 @@ const actions = {
 };
 
 const mutations = {
-  setNews(state, news) {
-    state.news = news;
+  setNews(state, data) {
+    state.news = data;
   },
 
   setError(state, error) {

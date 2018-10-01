@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import createLogger from "vuex/dist/logger";
 
+import coins from "./modules/coins";
 import news from "./modules/news";
 
 // Disable logs & strict mode in production:
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   plugins: debug ? [createLogger()] : [],
 
   modules: {
+    coins,
     news
   }
 });

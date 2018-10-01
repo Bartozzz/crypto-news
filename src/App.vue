@@ -11,14 +11,19 @@
 </template>
 
 <script>
-import Footer from './components/Footer.vue'
-import Header from './components/Header.vue'
+import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'app',
+  name: "App",
+
   components: {
     Footer,
     Header,
+  },
+
+  created () {
+    this.$store.dispatch("coins/getAllCoins");
   }
 }
 </script>
