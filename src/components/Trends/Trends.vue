@@ -21,54 +21,71 @@
 
     <template slot="row-details" slot-scope="row">
       <b-card bg-variant="card">
-        Tutaj wykres…
+        <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" />
       </b-card>
     </template>
   </b-table>
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+import ExchangeRateHistoric from "./ExchangeRateHistoric.vue";
+
 export default {
   name: "Trends",
+
+  components: {
+    ExchangeRateHistoric
+  },
 
   data() {
     return {
       fields: [
         {
           key: 'fsym',
-          label: 'Name',
-          sortable: false
+          label: 'Name'
         },
         {
-          key: 'low',
-          label: 'Min.',
-          sortable: true
+          key: 'current.low',
+          label: 'Min.'
         },
         {
-          key: 'high',
-          label: 'Max.',
-          sortable: true
+          key: 'current.high',
+          label: 'Max.'
         },
         {
-          key: 'open',
-          label: 'Open',
-          sortable: true,
+          key: 'current.open',
+          label: 'Open'
         },
         {
-          key: 'close',
-          label: 'Close',
-          sortable: true,
+          key: 'current.close',
+          label: 'Close'
         },
         {
           key: "show_details"
         }
-      ],
-      items: [
-        { fsym: "BTC", low: 6333.21, high: 6583.54, close: 12123, open: 6583.53 },
-        { fsym: "BTC", low: 6333.21, high: 6583.54, close: 12123, open: 6583.53 },
-        { fsym: "BTC", low: 6333.21, high: 6583.54, close: 12123, open: 6583.53 }
       ]
     }
+  },
+
+  computed: {
+    ...mapState({
+      items: state => state.trends.exchangeRates,
+      error: state => state.news.error
+    }),
+
+    ...mapGetters({
+      generateChartData: "trends/generateChartData",
+    }),
+  },
+
+  created () {
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "BTC" });
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "ETH" });
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "LSK" });
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "LTC" });
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DASH" });
+    this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DOGE" });
   }
 }
 </script>
