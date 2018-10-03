@@ -21,7 +21,7 @@
 
     <template slot="row-details" slot-scope="row">
       <b-card bg-variant="card">
-        <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" />
+        <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" :height="100" />
       </b-card>
     </template>
   </b-table>

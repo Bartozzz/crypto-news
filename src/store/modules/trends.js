@@ -1,5 +1,6 @@
 import * as R from "ramda";
 import * as coinsAPI from "../../api/coins";
+import { timeToTimestamp } from "../../helpers/time";
 
 const state = {
   exchangeRates: [],
@@ -62,7 +63,9 @@ const mutations = {
       // Precedent exchange rates:
       previous: R.pipe(
         R.concat(data.response),
-        R.uniq
+        R.uniq,
+        // TODO move it to `processResponse` or something like that:
+        R.map(timeToTimestamp)
       )
     })(actualExchangeRate);
 
