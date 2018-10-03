@@ -25,9 +25,7 @@ const router = new VueRouter({
 
 new Vue({
   created() {
-    aos.init({
-      disable: "phone"
-    });
+    aos.init();
   },
 
   store,
