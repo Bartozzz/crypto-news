@@ -1,7 +1,9 @@
+import aos from "aos";
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueBootstrap from "bootstrap-vue";
 
+import "aos/dist/aos.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
@@ -22,6 +24,12 @@ const router = new VueRouter({
 });
 
 new Vue({
+  created() {
+    aos.init({
+      disable: "phone"
+    });
+  },
+
   store,
   router,
   render: h => h(App)
