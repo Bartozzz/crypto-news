@@ -50,7 +50,9 @@ const mutations = {
       tsym: data.tsym,
       interval: data.interval,
       current: {},
-      previous: []
+      previous: [],
+      // Vue Bootstrap specific:
+      _rowVariant: "row-entered"
     })(getters.getExchangeRataBySymbol(state)(data.fsym));
 
     // Populate old exchange data with new data:
