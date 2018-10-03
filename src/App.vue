@@ -1,11 +1,7 @@
 <template>
   <div class="app">
     <Header />
-
-    <div class="app-content">
-      <router-view></router-view>
-    </div>
-
+    <router-view />
     <Footer />
   </div>
 </template>
@@ -30,35 +26,26 @@ export default {
 
 <style>
 .app {
-  display: flex;
-  flex-direction: column;
+  position: relative;
 
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 100vw;
 
-  background-color: #323639;
-  color: #ffffff;
-
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.app-content {
   background-image: url("./assets/bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 700px;
   background-attachment: local;
+  background-color: #323639;
 
-  flex: 1;
-
-  overflow-x: hidden;
-  overflow-y: auto;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 600px) {
-  .app-content {
+  .app {
     background-image: none;
   }
 }
@@ -80,5 +67,9 @@ export default {
 
 .bg-card {
   background-color: #41464a;
+}
+
+.bg-dark {
+  background-color: #323639 !important;
 }
 </style>
