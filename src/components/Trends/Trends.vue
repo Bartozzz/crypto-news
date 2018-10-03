@@ -21,7 +21,7 @@
 
     <template slot="row-details" slot-scope="row">
       <b-card bg-variant="card">
-        <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" />
+        <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" :height="100" />
       </b-card>
     </template>
   </b-table>
@@ -96,6 +96,11 @@ export default {
   box-shadow: 0 0 15px 10px #323639;
 }
 
+.table-row-entered {
+  animation-name: addedRow;
+  animation-duration: 1s;
+}
+
 .trend .border,
 .trend-thead-tr th {
   border-color: transparent !important;
@@ -120,5 +125,14 @@ export default {
 }
 
 .trend-tbody-tr {
+}
+
+@keyframes addedRow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>

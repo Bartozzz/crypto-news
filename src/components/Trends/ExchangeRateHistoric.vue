@@ -10,26 +10,18 @@ export default {
 
   mounted () {
     this.renderChart(this.data, {
-      options: {
+        responsive: true,
+        legend: {
+          display: false
+        },
         scales: {
           xAxes: [{
-            type: 'time',
+            type: "time",
             time: {
-              displayFormats: {
-                'millisecond': 'MMM DD',
-                'second': 'MMM DD',
-                'minute': 'MMM DD',
-                'hour': 'MMM DD',
-                'day': 'MMM DD',
-                'week': 'MMM DD',
-                'month': 'MMM DD',
-                'quarter': 'MMM DD',
-                'year': 'MMM DD',
-              }
+              unit: "minute"
             }
           }],
         },
-      }
     });
   }
 }

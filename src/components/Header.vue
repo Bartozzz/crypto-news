@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="sm" type="dark" variant="transparent">
+  <b-navbar toggleable="sm" type="dark" variant="dark" sticky>
     <b-container>
       <b-navbar-brand to="/">Crypto News</b-navbar-brand>
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
