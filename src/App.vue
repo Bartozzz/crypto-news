@@ -47,9 +47,9 @@ export default {
 .app-content {
   background-image: url("./assets/bg.svg");
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: top right;
   background-size: 700px;
-  background-attachment: fixed;
+  background-attachment: local;
 
   flex: 1;
 
