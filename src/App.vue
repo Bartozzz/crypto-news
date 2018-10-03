@@ -25,18 +25,22 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: #323639;
+}
+
 .app {
   position: relative;
 
   min-height: 100vh;
-  max-width: 100vw;
+  height: 100%;
+  width: 100vw;
 
   background-image: url("./assets/bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 700px;
   background-attachment: local;
-  background-color: #323639;
 
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
