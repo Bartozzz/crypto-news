@@ -4,6 +4,8 @@
     class="article"
     bg-variant="card"
     border-variant="transparent"
+    data-aos="slide-up"
+    data-aos-once="true"
   >
     <a class="card-img-container" :href="url" target="_blank" rel="noreferrer noopener">
       <b-img-lazy
