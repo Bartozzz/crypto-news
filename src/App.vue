@@ -36,7 +36,7 @@ body {
   height: 100%;
   width: 100vw;
 
-  background-image: url("./assets/bg.svg");
+  background-image: url("/images/bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: 700px;
