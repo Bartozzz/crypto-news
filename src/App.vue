@@ -1,25 +1,40 @@
 <template>
   <div class="app">
-    <Header />
-    <router-view />
-    <Footer />
+    <transition-group name="fade">
+      <Loader key="app-loader" v-if="!isStateReady" />
+      <Header key="app-header" v-if="isStateReady" />
+      <Content key="app-content" v-if="isStateReady" />
+      <Footer key="app-footer"  v-if="isStateReady" />
+    </transition-group>
   </div>
 </template>
 
 <script>
+import Content from "./components/Content.vue";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
+import Loader from "./components/Loader.vue";
 
 export default {
   name: "App",
 
+  data: () => ({
+    isStateReady: false
+  }),
+
   components: {
+    Content,
     Footer,
     Header,
+    Loader,
   },
 
   created () {
-    this.$store.dispatch("coins/getAllCoins");
+    this.$store._vm.$root.$on('storageReady', () => {
+      this.isStateReady = true;
+
+      this.$store.dispatch("coins/getAllCoins");
+    });
   }
 }
 </script>
@@ -75,5 +90,14 @@ body {
 
 .bg-dark {
   background-color: #323639 !important;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
