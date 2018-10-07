@@ -13,14 +13,18 @@ const actions = {
     newsAPI
       .getLatestNews()
       .then(data => commit("setNews", data))
-      .catch(error => commit("setError", error));
+      .catch(err => commit("setError", err));
   }
 };
 
 const mutations = {
-  setNews(state, data) {
-    state.news = R.prop("data", data);
-    state.fetchedAt = R.prop("fetchedAt", data);
+  setNews(state, response) {
+    state.news = R.pipe(
+      R.concat(R.prop("data", response)),
+      R.uniqBy(R.prop("id"))
+    )(state.news);
+
+    state.fetchedAt = R.prop("fetchedAt", response);
   },
 
   setError(state, error) {
