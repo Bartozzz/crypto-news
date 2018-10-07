@@ -3,8 +3,8 @@
     <b-form-select
       variant="transparent"
       placeholder="Select coin"
-      value-field="Symbol"
-      text-field="FullName"
+      value-field="symbol"
+      text-field="fullName"
       :options="coins"
       @input="changeSelectedCoin($event)"
     />
@@ -13,7 +13,6 @@
       <b-form-input
         placeholder="Amount"
         :value="value"
-        :disabled="!('Symbol' in coin)"
         @input="$emit('input', $event)"
       />
     </b-form-group>
