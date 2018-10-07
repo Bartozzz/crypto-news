@@ -2,28 +2,32 @@
   <b-container>
     <b-jumbotron bg-variant="transparent" text-variant="white">
       <template slot="header">
-        <span class="d-none d-md-block">Crypto news</span>
+        <span class="d-none d-md-block">Crypto conversion</span>
       </template>
 
       <template slot="lead">
         <p class="jumbotron-lead">
-          Latest articles from the world of cryptocurrencies. Read what is
-          happening with <em>Bitcoin</em>, <em>Ethereum</em> and other altcoins.
+          This tool allows you to quickly compare two cryptocurrencies. We use
+          latest pricing data from <b-link class="text-secondary" href="https://min-api.cryptocompare.com/">CryptoCurrency API</b-link>.
         </p>
       </template>
+
+      <Converter class="converter mt-5" />
     </b-jumbotron>
 
-    <Articles class="mb-5" />
+    <Trends class="mb-5 px-4" />
   </b-container>
 </template>
 
 <script>
-import Articles from "../Articles/Articles.vue";
+import Converter from "../components/Converter/Converter.vue"
+import Trends from "../components/Trends/Trends.vue"
 
 export default {
-  name: 'NewsScreen',
+  name: 'HomeScreen',
   components: {
-    Articles
+    Converter,
+    Trends
   }
 }
 </script>
@@ -57,6 +61,10 @@ export default {
   .jumbotron .display-3,
   .jumbotron .lead {
     text-align: center;
+  }
+
+  .converter {
+    margin: 0 auto;
   }
 }
 
