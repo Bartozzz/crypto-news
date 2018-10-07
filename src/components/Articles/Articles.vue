@@ -7,8 +7,8 @@
       v-bind:img="post.imageurl"
       v-bind:body="post.body"
       v-bind:title="post.title"
-      v-bind:date="post.published_on"
-      v-bind:publisher="post.source_info.name"
+      v-bind:date="post.publishedOn"
+      v-bind:publisher="post.sourceInfo.name"
       class="mb-3"
     />
   </div>

@@ -55,15 +55,15 @@ export default {
     }),
 
     conversionRate() {
-      const { Symbol: SymbolA } = this.coinA;
-      const { Symbol: SymbolB } = this.coinB;
+      const { symbol: symbolA } = this.coinA;
+      const { symbol: symbolB } = this.coinB;
 
-      if (!(SymbolA in this.prices) || !(SymbolB in this.prices)) {
+      if (!(symbolA in this.prices) || !(symbolB in this.prices)) {
         return 0;
       }
 
-      const { BTC: BTCa } = this.prices[this.coinA.Symbol];
-      const { BTC: BTCb } = this.prices[this.coinB.Symbol];
+      const { BTC: BTCa } = this.prices[this.coinA.symbol];
+      const { BTC: BTCb } = this.prices[this.coinB.symbol];
 
       return BTCa / BTCb;
     }
@@ -89,8 +89,8 @@ export default {
 
   methods: {
     fetchSelectedCoinsPrices() {
-      const { Symbol: symbolA } = this.coinA;
-      const { Symbol: symbolB } = this.coinB;
+      const { symbol: symbolA } = this.coinA;
+      const { symbol: symbolB } = this.coinB;
 
       if (!symbolA || !symbolB) {
         return;

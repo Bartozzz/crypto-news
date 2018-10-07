@@ -1,17 +1,17 @@
 import * as R from "ramda";
 import * as coinsAPI from "../../api/coins";
-import { prependProp } from "../../helpers/ramda";
 
 const state = {
   coins: [],
   prices: {},
-  error: null
+  error: null,
+  fetchedAt: 0
 };
 
 const getters = {
   getCoinBySymbol: state => symbol => {
     return R.pipe(
-      R.filter(R.propEq("Symbol", symbol)),
+      R.filter(R.propEq("symbol", symbol)),
       R.head
     )(state.coins);
   }
@@ -21,51 +21,26 @@ const actions = {
   getAllCoins({ commit }) {
     coinsAPI
       .getAllCoins()
-      .then(response => {
-        commit("setCoins", response.data);
-      })
-      .catch(error => {
-        commit("setError", error);
-      });
+      .then(data => commit("setCoins", data))
+      .catch(err => commit("setError", err));
   },
 
   getCoinsPrices({ commit }, { coins, currencies }) {
     coinsAPI
       .getCoinsPrices(coins, currencies)
-      .then(response => {
-        commit("savePrices", response.data);
-      })
-      .catch(error => {
-        commit("setError", error);
-      });
+      .then(data => commit("savePrices", data))
+      .catch(err => commit("setError", err));
   }
 };
 
 const mutations = {
-  setCoins(state, { Data, BaseImageUrl, BaseLinkUrl }) {
-    const requiredProps = [
-      "Id",
-      "Symbol",
-      "CoinName",
-      "FullName",
-      "Url",
-      "ImageUrl"
-    ];
-
+  setCoins(state, response) {
     state.coins = R.pipe(
-      // Filter illegal coins:
-      R.filter(R.allPass(R.map(R.has, requiredProps))),
-      // Remove redundant props & map absolute paths:
-      R.map(
-        R.compose(
-          R.pickAll(requiredProps),
-          prependProp("Url", BaseLinkUrl),
-          prependProp("ImageUrl", BaseImageUrl)
-        )
-      ),
-      // Convert to Array:
-      R.values
-    )(Data);
+      R.concat(R.prop("data", response)),
+      R.uniqBy(R.prop("id"))
+    )(state.coins);
+
+    state.fetchedAt = R.prop("fetchedAt", response);
   },
 
   savePrices(state, response) {

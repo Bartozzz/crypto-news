@@ -38,7 +38,7 @@ export default {
   left: 15px;
   top: 0px;
 
-  background-image: url("../../assets/map.png");
+  background-image: url("/images/map.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center left;
