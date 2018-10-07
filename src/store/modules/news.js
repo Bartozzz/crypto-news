@@ -3,7 +3,8 @@ import * as newsAPI from "../../api/news";
 
 const state = {
   news: [],
-  error: null
+  error: null,
+  fetchedAt: 0
 };
 
 const getters = {};

@@ -22,16 +22,19 @@ export function getLatestNews() {
 
         // Remove useless props from news:
         R.evolve({
-          data: R.map(
-            R.omit([
-              "upvotes",
-              "downvotes",
-              "lang",
-              "tags",
-              "guid",
-              "source",
-              "categories"
-            ])
+          data: R.pipe(
+            R.map(
+              R.omit([
+                "upvotes",
+                "downvotes",
+                "lang",
+                "tags",
+                "guid",
+                "source",
+                "categories"
+              ])
+            ),
+            R.values
           )
         })
       )(response.data)
