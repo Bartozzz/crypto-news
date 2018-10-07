@@ -5,7 +5,7 @@
 [![Github Releases](https://img.shields.io/github/downloads/Bartozzz/crypto-news/latest/total.svg)](https://github.com/Bartozzz/crypto-news/releases)
 <br>
 
-**Crypto News** allows you to converts cryptocurrencies, view latest news and exchange rates for each ICO – all the data from the world of cryptocurrencies in one place. It is based on [`Vue`](https://vuejs.org/), licensed under the _[MIT license](#license)_. Uses [CryptoCompare API](https://min-api.cryptocompare.com/).
+**Crypto News** allows you to convert cryptocurrencies, view latest news and exchange rates for each ICO – all the data from the world of cryptocurrencies in one place. It is based on [`Vue`](https://vuejs.org/), licensed under the _[MIT license](#license)_. Uses [CryptoCompare API](https://min-api.cryptocompare.com/).
 
   <br>
 
