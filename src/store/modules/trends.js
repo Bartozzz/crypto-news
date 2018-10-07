@@ -15,8 +15,8 @@ const getters = {
   generateChartData: state => (symbol, criterium = "high") => {
     const exchangeRate = getters.getExchangeRataBySymbol(state)(symbol);
 
-    const labels = R.map(R.prop("time"))(exchangeRate.previous);
-    const data = R.map(R.prop(criterium))(exchangeRate.previous);
+    const labels = R.pluck("time")(exchangeRate.previous);
+    const data = R.pluck(criterium)(exchangeRate.previous);
 
     return {
       labels: labels,
