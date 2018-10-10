@@ -1,0 +1,55 @@
+.custom-v-select.v-select {
+  @extend .form-control;
+
+  input[type="search"],
+  input[type="search"]:focus,
+  .selected-tag {
+    color: $input-color;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .selected-tag {
+    padding-left: 7px;
+  }
+
+  .open-indicator {
+    margin-top: -2px;
+
+    &::before {
+      border-color: $input-color;
+      border-width: 2px 2px 0 0;
+    }
+  }
+
+  .vs__selected-options {
+    padding: 0;
+  }
+
+  .dropdown-toggle {
+    // Reset v-select styles:
+    padding: 0;
+    border: 0;
+
+    // Clear icon:
+    .clear {
+      display: none;
+      // font-weight: 900;
+      // color: $input-color;
+    }
+
+    &::after {
+      // Fixes Bootstrap's dropdown icon:
+      content: normal;
+    }
+  }
+
+  .dropdown-menu {
+    background-color: $input-bg;
+  }
+
+  .form-control {
+    height: inherit;
+  }
+}

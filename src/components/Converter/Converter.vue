@@ -4,8 +4,10 @@
       <CoinCard
         id="coinA"
         v-model="coinA.amount"
-        :coin.sync="coinA"
-        :coins.sync="coins"
+        :coin="coinA"
+        :price="getPricesBySymbol(coinA.symbol)"
+        :coins="coins"
+        :canCompare="bothCoinsSelected"
         @onCoinSelect="changeSelectedCoin"
       />
     </b-col>
@@ -14,8 +16,10 @@
       <CoinCard
         id="coinB"
         v-model="coinB.amount"
-        :coin.sync="coinB"
-        :coins.sync="coins"
+        :coin="coinB"
+        :price="getPricesBySymbol(coinB.symbol)"
+        :coins="coins"
+        :canCompare="bothCoinsSelected"
         @onCoinSelect="changeSelectedCoin"
       />
     </b-col>
@@ -23,6 +27,7 @@
 </template>
 
 <script>
+import * as R from "ramda";
 import { mapState, mapGetters } from "vuex";
 import CoinCard from "./CoinCard.vue";
 
@@ -51,8 +56,13 @@ export default {
     }),
 
     ...mapGetters({
-      getCoinBySymbol: "coins/getCoinBySymbol"
+      getCoinBySymbol: "coins/getCoinBySymbol",
+      getPricesBySymbol: "coins/getPricesBySymbol"
     }),
+
+    bothCoinsSelected() {
+      return R.has("symbol", this.coinA) && R.has("symbol", this.coinB);
+    },
 
     conversionRate() {
       const { symbol: symbolA } = this.coinA;
@@ -88,27 +98,18 @@ export default {
   },
 
   methods: {
-    fetchSelectedCoinsPrices() {
-      const { symbol: symbolA } = this.coinA;
-      const { symbol: symbolB } = this.coinB;
-
-      if (!symbolA || !symbolB) {
-        return;
-      }
-
-      this.$store.dispatch("coins/getCoinsPrices", {
-        coins: [symbolA, symbolB],
-        currencies: [symbolA, symbolB, "USD", "BTC"]
-      });
-    },
-
     changeSelectedCoin({ index, value }) {
+      const coin = this.getCoinBySymbol(value);
+
       this[index] = {
-        ...this.getCoinBySymbol(value),
+        ...coin,
         amount: 0
       };
 
-      this.fetchSelectedCoinsPrices();
+      this.$store.dispatch("coins/getCoinsPrices", {
+        coins: [value],
+        currencies: ["USD", "BTC"]
+      });
     }
   }
 };

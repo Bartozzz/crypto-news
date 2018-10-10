@@ -14,6 +14,11 @@ const getters = {
       R.filter(R.propEq("symbol", symbol)),
       R.head
     )(state.coins);
+  },
+
+  getPricesBySymbol: state => symbol => {
+    console.log(symbol);
+    return R.prop(symbol)(state.prices);
   }
 };
 
