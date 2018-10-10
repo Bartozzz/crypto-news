@@ -2,9 +2,7 @@ import aos from "aos";
 import Vue from "vue";
 import VueBootstrap from "bootstrap-vue";
 
-import "aos/dist/aos.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
+import "./styles/_index.scss";
 
 import App from "./App.vue";
 import store from "./store";

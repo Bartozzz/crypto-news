@@ -1,0 +1,27 @@
+$font-family-sans-serif: "Avenir", "Open Sans", "Montserrat", "Helvetica Neue",
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-heading: "Avenir", "Montserrat", "Open Sans", "Helvetica Neue",
+  Helvetica, sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": #323639
+);
+
+$body-bg: theme-color("dark");
+$body-color: $white;
+
+$link-color: theme-color("primary") !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;

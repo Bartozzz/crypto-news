@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .footer {
   background-image: linear-gradient(transparent 0, #323639 95%);
   font-size: 0.85em;
@@ -21,10 +21,8 @@ export default {
   padding-right: 1rem;
 
   text-align: right;
-}
 
-@media screen and (max-width: 1300px) {
-  .footer {
+  @media screen and (max-width: 1300px) {
     text-align: center;
   }
 }

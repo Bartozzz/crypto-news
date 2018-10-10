@@ -27,27 +27,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .loader {
   position: absolute;
 
   width: 100vw;
   height: 100vh;
-}
 
-.loader-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  &-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-  /* Prevents showing loader if page loads quickly */
-  opacity: 0;
-  animation-name: fadeIn;
-  animation-delay: 1000ms;
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
+    /* Prevents showing loader if page loads quickly */
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 1000ms;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes fadeIn {

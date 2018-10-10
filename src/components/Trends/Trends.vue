@@ -90,49 +90,48 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .trend {
   background-color: #323639;
   box-shadow: 0 0 15px 10px #323639;
 }
 
+.table {
+  border-color: transparent !important;
+
+  &-thead-tr th:last-child,
+  &-tbody-tr td:last-child {
+    text-align: right;
+  }
+
+  &-thead-tr {
+    font-size: 0.85em;
+    text-transform: uppercase;
+
+    th {
+      border-color: transparent !important;
+    }
+  }
+
+  &-tbody-tr {
+    td {
+      border-color: #6c757d !important;
+    }
+  }
+}
+
 .table-row-entered {
   animation-name: addedRow;
   animation-duration: 1s;
-}
 
-.trend .border,
-.trend-thead-tr th {
-  border-color: transparent !important;
-}
+  @keyframes addedRow {
+    0% {
+      opacity: 0;
+    }
 
-.trend-tbody-tr td {
-  border-color: #6c757d !important;
-}
-
-.trend-thead-tr th:last-child,
-.trend-tbody-tr td:last-child {
-  text-align: right;
-}
-
-.trend-tbody,
-.trend-thead {
-}
-
-.trend-thead-tr {
-  font-size: 0.85em;
-  text-transform: uppercase;
-}
-
-.trend-tbody-tr {
-}
-
-@keyframes addedRow {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+    100% {
+      opacity: 1;
+    }
   }
 }
 </style>

@@ -21,14 +21,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .navbar {
   box-shadow: 0 15px 15px -2px #323639;
   z-index: 1;
-}
 
-@media screen and (max-width: 600px) {
-  .navbar-nav {
+  @media screen and (max-width: 600px) {
     text-align: center;
   }
 }
