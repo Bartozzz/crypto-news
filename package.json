@@ -19,6 +19,7 @@
     "vue": "^2.5.17",
     "vue-chartjs": "3.4.0",
     "vue-router": "3.0.1",
+    "vue-select": "2.5.1",
     "vuex": "3.0.1",
     "vuex-persist": "1.7.1"
   },
@@ -41,7 +42,7 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
-    },
+  },
   "lint-staged": {
     "*.js": [
       "vue-cli-service lint",
@@ -51,5 +52,5 @@
       "vue-cli-service lint",
       "git add"
     ]
-    }
+  }
 }
