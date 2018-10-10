@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .app {
   position: relative;
 
@@ -52,35 +52,10 @@ export default {
   background-position: top right;
   background-size: 700px;
   background-attachment: local;
-}
 
-@media screen and (max-width: 600px) {
-  .app {
+  @media screen and (max-width: 600px) {
     background-image: none;
   }
-}
-
-.border-transparent {
-  border-color: transparent;
-}
-
-.btn-transparent {
-  background-color: transparent;
-  color: #ffffff;
-
-  padding: 0;
-  padding-bottom: 0.375rem;
-
-  font-size: inherit;
-  line-height: 1.5;
-}
-
-.bg-card {
-  background-color: #41464a;
-}
-
-.bg-dark {
-  background-color: #323639 !important;
 }
 
 .fade-enter-active,

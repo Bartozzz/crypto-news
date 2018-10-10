@@ -92,12 +92,7 @@ export default {
 
 <style lang="scss">
 .trend {
-  background-color: #323639;
   box-shadow: 0 0 15px 10px #323639;
-}
-
-.table {
-  border-color: transparent !important;
 
   &-thead-tr th:last-child,
   &-tbody-tr td:last-child {
@@ -107,30 +102,24 @@ export default {
   &-thead-tr {
     font-size: 0.85em;
     text-transform: uppercase;
-
-    th {
-      border-color: transparent !important;
-    }
-  }
-
-  &-tbody-tr {
-    td {
-      border-color: #6c757d !important;
-    }
   }
 }
 
-.table-row-entered {
-  animation-name: addedRow;
-  animation-duration: 1s;
+.table {
+  border-color: transparent !important;
 
-  @keyframes addedRow {
-    0% {
-      opacity: 0;
-    }
+  &-row-entered {
+    animation-name: addedRow;
+    animation-duration: 1s;
 
-    100% {
-      opacity: 1;
+    @keyframes addedRow {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
   }
 }
