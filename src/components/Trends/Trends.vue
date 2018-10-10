@@ -42,30 +42,30 @@ export default {
     return {
       fields: [
         {
-          key: 'fsym',
-          label: 'Name'
+          key: "fsym",
+          label: "Name"
         },
         {
-          key: 'current.low',
-          label: 'Min.'
+          key: "current.low",
+          label: "Min."
         },
         {
-          key: 'current.high',
-          label: 'Max.'
+          key: "current.high",
+          label: "Max."
         },
         {
-          key: 'current.open',
-          label: 'Open'
+          key: "current.open",
+          label: "Open"
         },
         {
-          key: 'current.close',
-          label: 'Close'
+          key: "current.close",
+          label: "Close"
         },
         {
           key: "show_details"
         }
       ]
-    }
+    };
   },
 
   computed: {
@@ -75,11 +75,11 @@ export default {
     }),
 
     ...mapGetters({
-      generateChartData: "trends/generateChartData",
-    }),
+      generateChartData: "trends/generateChartData"
+    })
   },
 
-  created () {
+  created() {
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "BTC" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "ETH" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "LSK" });
@@ -87,52 +87,40 @@ export default {
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DASH" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DOGE" });
   }
-}
+};
 </script>
 
-<style>
+<style lang="scss">
 .trend {
-  background-color: #323639;
   box-shadow: 0 0 15px 10px #323639;
-}
 
-.table-row-entered {
-  animation-name: addedRow;
-  animation-duration: 1s;
-}
-
-.trend .border,
-.trend-thead-tr th {
-  border-color: transparent !important;
-}
-
-.trend-tbody-tr td {
-  border-color: #6c757d !important;
-}
-
-.trend-thead-tr th:last-child,
-.trend-tbody-tr td:last-child {
-  text-align: right;
-}
-
-.trend-tbody,
-.trend-thead {
-}
-
-.trend-thead-tr {
-  font-size: 0.85em;
-  text-transform: uppercase;
-}
-
-.trend-tbody-tr {
-}
-
-@keyframes addedRow {
-  0% {
-    opacity: 0;
+  &-thead-tr th:last-child,
+  &-tbody-tr td:last-child {
+    text-align: right;
   }
-  100% {
-    opacity: 1;
+
+  &-thead-tr {
+    font-size: 0.85em;
+    text-transform: uppercase;
+  }
+}
+
+.table {
+  border-color: transparent !important;
+
+  &-row-entered {
+    animation-name: addedRow;
+    animation-duration: 1s;
+
+    @keyframes addedRow {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
   }
 }
 </style>

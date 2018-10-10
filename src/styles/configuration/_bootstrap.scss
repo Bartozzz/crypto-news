@@ -1,0 +1,62 @@
+// Fonts:
+$font-family-sans-serif: "Avenir", "Open Sans", "Montserrat", "Helvetica Neue",
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-heading: "Avenir", "Montserrat", "Open Sans", "Helvetica Neue",
+  Helvetica, sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+
+// Theme:
+$theme-colors: (
+  "primary": #494e53,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": #323639
+);
+
+$component-active-color: $white;
+$component-active-bg: theme-color("primary");
+
+// Containers:
+$container-max-widths: (
+  sm: 550px,
+  md: 750px,
+  lg: 1000px,
+  xl: 1300px
+);
+
+// Body:
+$body-bg: theme-color("dark");
+$body-color: $white;
+
+// Links:
+$link-color: $gray-600;
+$link-hover-color: darken($link-color, 15%);
+
+// Tables:
+$table-cell-padding: 0.75rem;
+$table-cell-padding-sm: 0.3rem;
+$table-bg: $body-bg;
+$table-border-color: #6c757d;
+
+// Cards:
+$card-border-width: 0;
+$card-bg: #41464a;
+
+// Forms
+$input-bg: #282b2e;
+$input-disabled-bg: $gray-200 !default;
+$input-color: #e9e9e9;
+$input-border-color: #232628;
+$input-box-shadow: 0 2px 3px rgba(black, 0.1);
+
+$input-focus-bg: $input-bg;
+$input-focus-border-color: lighten($component-active-bg, 25%);
+$input-focus-color: $input-color;
+$input-focus-box-shadow: $input-btn-focus-box-shadow;

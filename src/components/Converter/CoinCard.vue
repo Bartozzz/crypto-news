@@ -1,12 +1,12 @@
 <template>
   <b-card bg-variant="card" border-variant="transparent">
-    <b-form-select
-      variant="transparent"
+    <VueSelect
+      dir="ltr"
+      label="coinName"
       placeholder="Select coin"
-      value-field="symbol"
-      text-field="fullName"
+      class="form-control"
       :options="coins"
-      @input="changeSelectedCoin($event)"
+      :onChange="changeSelectedCoin"
     />
 
     <b-form-group class="my-1" description="Price actualized each 10 sec.">
@@ -20,8 +20,14 @@
 </template>
 
 <script>
+import { VueSelect } from "vue-select";
+
 export default {
   name: "CoinCard",
+
+  components: {
+    VueSelect
+  },
 
   props: {
     id: String,
@@ -31,15 +37,25 @@ export default {
   },
 
   methods: {
-    changeSelectedCoin(value) {
+    changeSelectedCoin(coin) {
       this.$emit("onCoinSelect", {
         index: this.id,
-        value
+        value: coin.symbol
       });
     }
   }
-}
+};
 </script>
 
 <style>
+.v-select {
+}
+
+.v-select.dropdown .dropdown-toggle::after {
+  content: normal;
+}
+
+.v-select.dropdown .form-control {
+  height: inherit;
+}
 </style>

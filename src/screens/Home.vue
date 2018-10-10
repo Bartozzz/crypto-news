@@ -20,16 +20,16 @@
 </template>
 
 <script>
-import Converter from "../components/Converter/Converter.vue"
-import Trends from "../components/Trends/Trends.vue"
+import Converter from "../components/Converter/Converter.vue";
+import Trends from "../components/Trends/Trends.vue";
 
 export default {
-  name: 'HomeScreen',
+  name: "HomeScreen",
   components: {
     Converter,
     Trends
   }
-}
+};
 </script>
 
 <style scoped>

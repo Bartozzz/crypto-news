@@ -21,11 +21,11 @@
 import Articles from "../components/Articles/Articles.vue";
 
 export default {
-  name: 'NewsScreen',
+  name: "NewsScreen",
   components: {
     Articles
   }
-}
+};
 </script>
 
 <style scoped>

@@ -3,7 +3,6 @@
     no-body
     class="article"
     bg-variant="card"
-    border-variant="transparent"
     data-aos="slide-up"
     data-aos-once="true"
   >
@@ -52,32 +51,35 @@ export default {
       return formatDistance(new Date(this.date * 1000), new Date());
     }
   }
-}
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .article {
   display: inline-block;
 }
 
-.card-img-container {
-  display: block;
-}
+.card {
+  &-img {
+    filter: grayscale(50%) saturate(80%);
 
-.card-img {
-  filter: grayscale(50%) saturate(80%);
-}
+    // Image container is actually a link:
+    &-container {
+      display: block;
+    }
+  }
 
-.card-title,
-.card-text {
-  word-break: break-word;
-}
+  &-title,
+  &-text {
+    word-break: break-word;
+  }
 
-.card-text {
-  text-align: justify;
-  text-align-last: left;
-  text-justify: distribute;
+  &-text {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: distribute;
 
-  hyphens: auto;
+    hyphens: auto;
+  }
 }
 </style>

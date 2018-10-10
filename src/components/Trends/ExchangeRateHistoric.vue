@@ -1,5 +1,5 @@
 <script>
-import { Line } from 'vue-chartjs'
+import { Line } from "vue-chartjs";
 
 export default {
   extends: Line,
@@ -8,21 +8,23 @@ export default {
     data: Object
   },
 
-  mounted () {
+  mounted() {
     this.renderChart(this.data, {
-        responsive: true,
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
+      responsive: true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [
+          {
             type: "time",
             time: {
               unit: "minute"
             }
-          }],
-        },
+          }
+        ]
+      }
     });
   }
-}
+};
 </script>

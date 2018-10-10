@@ -26,24 +26,20 @@ export default {
     Content,
     Footer,
     Header,
-    Loader,
+    Loader
   },
 
-  created () {
-    this.$store._vm.$root.$on('storageReady', () => {
+  created() {
+    this.$store._vm.$root.$on("storageReady", () => {
       this.isStateReady = true;
 
       this.$store.dispatch("coins/getAllCoins");
     });
   }
-}
+};
 </script>
 
-<style>
-body {
-  background-color: #323639;
-}
-
+<style lang="scss">
 .app {
   position: relative;
 
@@ -57,39 +53,9 @@ body {
   background-size: 700px;
   background-attachment: local;
 
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
-}
-
-@media screen and (max-width: 600px) {
-  .app {
+  @media screen and (max-width: 600px) {
     background-image: none;
   }
-}
-
-.border-transparent {
-  border-color: transparent;
-}
-
-.btn-transparent {
-  background-color: transparent;
-  color: #ffffff;
-
-  padding: 0;
-  padding-bottom: 0.375rem;
-
-  font-size: inherit;
-  line-height: 1.5;
-}
-
-.bg-card {
-  background-color: #41464a;
-}
-
-.bg-dark {
-  background-color: #323639 !important;
 }
 
 .fade-enter-active,
