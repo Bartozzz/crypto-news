@@ -42,30 +42,30 @@ export default {
     return {
       fields: [
         {
-          key: 'fsym',
-          label: 'Name'
+          key: "fsym",
+          label: "Name"
         },
         {
-          key: 'current.low',
-          label: 'Min.'
+          key: "current.low",
+          label: "Min."
         },
         {
-          key: 'current.high',
-          label: 'Max.'
+          key: "current.high",
+          label: "Max."
         },
         {
-          key: 'current.open',
-          label: 'Open'
+          key: "current.open",
+          label: "Open"
         },
         {
-          key: 'current.close',
-          label: 'Close'
+          key: "current.close",
+          label: "Close"
         },
         {
           key: "show_details"
         }
       ]
-    }
+    };
   },
 
   computed: {
@@ -75,11 +75,11 @@ export default {
     }),
 
     ...mapGetters({
-      generateChartData: "trends/generateChartData",
-    }),
+      generateChartData: "trends/generateChartData"
+    })
   },
 
-  created () {
+  created() {
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "BTC" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "ETH" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "LSK" });
@@ -87,7 +87,7 @@ export default {
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DASH" });
     this.$store.dispatch("trends/getCoinExchangeRate", { coin: "DOGE" });
   }
-}
+};
 </script>
 
 <style>

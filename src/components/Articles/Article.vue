@@ -52,7 +52,7 @@ export default {
       return formatDistance(new Date(this.date * 1000), new Date());
     }
   }
-}
+};
 </script>
 
 <style scoped>

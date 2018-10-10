@@ -29,7 +29,7 @@ import CoinCard from "./CoinCard.vue";
 const processAmount = amount => {
   // Casts to number & sets min val to 0:
   return Math.max(Number(amount) || 0, 0);
-}
+};
 
 export default {
   name: "Converter",
@@ -40,7 +40,7 @@ export default {
 
   data: () => ({
     coinA: { amount: 0 },
-    coinB: { amount: 0 },
+    coinB: { amount: 0 }
   }),
 
   computed: {
@@ -51,7 +51,7 @@ export default {
     }),
 
     ...mapGetters({
-      getCoinBySymbol: "coins/getCoinBySymbol",
+      getCoinBySymbol: "coins/getCoinBySymbol"
     }),
 
     conversionRate() {
@@ -106,12 +106,12 @@ export default {
       this[index] = {
         ...this.getCoinBySymbol(value),
         amount: 0
-      }
+      };
 
       this.fetchSelectedCoinsPrices();
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>

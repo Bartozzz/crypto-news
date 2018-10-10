@@ -30,10 +30,10 @@ export default {
     error: state => state.news.error
   }),
 
-  created () {
+  created() {
     this.$store.dispatch("news/getLatestNews");
   }
-}
+};
 </script>
 
 <style scoped>

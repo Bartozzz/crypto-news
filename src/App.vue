@@ -26,24 +26,20 @@ export default {
     Content,
     Footer,
     Header,
-    Loader,
+    Loader
   },
 
-  created () {
-    this.$store._vm.$root.$on('storageReady', () => {
+  created() {
+    this.$store._vm.$root.$on("storageReady", () => {
       this.isStateReady = true;
 
       this.$store.dispatch("coins/getAllCoins");
     });
   }
-}
+};
 </script>
 
 <style>
-body {
-  background-color: #323639;
-}
-
 .app {
   position: relative;
 
@@ -56,11 +52,6 @@ body {
   background-position: top right;
   background-size: 700px;
   background-attachment: local;
-
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
 }
 
 @media screen and (max-width: 600px) {
