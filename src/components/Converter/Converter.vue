@@ -111,6 +111,10 @@ export default {
         currencies: ["USD", "BTC"]
       });
     }
+  },
+
+  created() {
+    this.$store.dispatch("coins/getAllCoins");
   }
 };
 </script>

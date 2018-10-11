@@ -45,5 +45,8 @@
 @import "~bootstrap/scss/utilities";
 @import "~bootstrap/scss/print";
 
+// Vue transitions & other animations:
+@import "animations/transition-fade";
+
 // Custom components
 @import "components/v-select/index";
