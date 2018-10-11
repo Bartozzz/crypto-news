@@ -20,7 +20,7 @@
     </template>
 
     <template slot="row-details" slot-scope="row">
-      <b-card bg-variant="card">
+      <b-card>
         <ExchangeRateHistoric :data="generateChartData(row.item.fsym)" :height="100" />
       </b-card>
     </template>
@@ -71,7 +71,7 @@ export default {
   computed: {
     ...mapState({
       items: state => state.trends.exchangeRates,
-      error: state => state.news.error
+      error: state => state.trends.error
     }),
 
     ...mapGetters({
