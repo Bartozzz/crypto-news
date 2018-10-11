@@ -1,11 +1,5 @@
 <template>
-  <b-card
-    no-body
-    class="article"
-    bg-variant="card"
-    data-aos="slide-up"
-    data-aos-once="true"
-  >
+  <b-card no-body class="article" data-aos="slide-up" data-aos-once="true">
     <a class="card-img-container" :href="url" target="_blank" rel="noreferrer noopener">
       <b-img-lazy
         :src="img"
@@ -25,7 +19,7 @@
       <p class="card-text" v-html="body" />
 
       <small class="text-muted">
-        Updated {{ published }} by <a class="text-light" :href="url" target="_blank" rel="noreferrer noopener">{{ publisher }}</a>.
+        Published {{ publishedOn }} ago by <a class="text-light" :href="url" target="_blank" rel="noreferrer noopener">{{ publisher }}</a>.
       </small>
     </b-card-body>
   </b-card>
@@ -47,7 +41,7 @@ export default {
   },
 
   computed: {
-    published() {
+    publishedOn() {
       return formatDistance(new Date(this.date * 1000), new Date());
     }
   }
